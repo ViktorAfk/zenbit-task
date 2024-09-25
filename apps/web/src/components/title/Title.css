@@ -1,0 +1,21 @@
+.title {
+	color: var(--text-color);
+	font-size: var(--font-large);
+	line-height: 48px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+@media (min-width: 640px) {
+	.title {
+		font-size: var(--font-xl);
+		line-height: 60px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.title {
+		font-size: var(--font-xxl);
+		line-height: 80px;
+	}
+}

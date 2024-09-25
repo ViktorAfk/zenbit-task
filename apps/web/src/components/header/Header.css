@@ -1,0 +1,6 @@
+.header {
+	height: 80px;
+	background-color: var(--primary-color);
+	box-shadow: 0px 10px 40px 0px #0000000f;
+	backdrop-filter: 0px 2px 10px 0px #0000001a;
+}
