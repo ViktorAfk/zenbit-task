@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import { AuthorizationLinks } from '../ui/autorization-links/AuthorizationLinks';
+import { AuthorizationLinks } from '../ui/authorization-links/AuthorizationLinks';
 export const Header: React.FC = () => {
   return (
     <header className="header">

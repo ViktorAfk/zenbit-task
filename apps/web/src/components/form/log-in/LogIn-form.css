@@ -1,0 +1,23 @@
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.textfield-container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-bottom: 10px;
+}
+
+.form-link__container {
+	display: flex;
+	justify-content: end;
+	margin-bottom: 30px;
+}
+
+.form-link {
+	color: var(--secondary-color);
+	font-weight: var(--text-sm);
+	line-height: 22px;
+}
