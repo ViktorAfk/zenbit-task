@@ -13,6 +13,7 @@ export class AuthController {
   ) {
     return this.authService.signIn(signInDto.email, signInDto.password);
   }
+
   @HttpCode(HttpStatus.OK)
   @Post('/signup')
   signUp(@Body() signUpDto: Prisma.UserCreateInput) {
