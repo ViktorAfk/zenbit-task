@@ -1,16 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Authorization-links.css';
+import cn from 'classnames';
+
+const getLinkClass = ({ isActive }: { isActive: boolean }): string => {
+  return cn('link', { 'link--active': isActive });
+};
 
 export const AuthorizationLinks: React.FC = () => {
   return (
     <div className="authorization-links-container">
-      <Link className="link link--sign-in merriweather-bold" to={'sign-in'}>
+      <NavLink className={getLinkClass} to={'authorization/sign-in'}>
         Log in
-      </Link>
-      <Link className="link link--sign-up merriweather-bold" to={'sign-up'}>
+      </NavLink>
+      <NavLink className={getLinkClass} to={'authorization/sign-up'}>
         Sign Up
-      </Link>
+      </NavLink>
     </div>
   );
 };

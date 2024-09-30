@@ -1,12 +1,10 @@
 import React from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
+import './Textfield.css';
 
-type FieldName = 'email' | 'password';
-type FormFields = Record<FieldName, string>;
-
-type Props = {
-  fieldName: FieldName;
-  register: UseFormRegister<FormFields>;
+type Props<T extends FieldValues> = {
+  fieldName: Path<T>;
+  register: UseFormRegister<T>;
   errorMessage: string | undefined;
   labelName: string;
   attributeLabelName: string;
@@ -19,7 +17,8 @@ type Props = {
     HTMLLabelElement
   >;
 };
-export const TextField: React.FC<Props> = ({
+
+export const TextField = <T extends FieldValues>({
   register,
   errorMessage,
   labelName,
@@ -27,9 +26,9 @@ export const TextField: React.FC<Props> = ({
   restLabelProps,
   restInputProps,
   fieldName,
-}) => {
+}: Props<T>) => {
   return (
-    <div>
+    <div className="text-field">
       <label
         className="label merriweather-bold"
         {...restLabelProps}
@@ -42,6 +41,7 @@ export const TextField: React.FC<Props> = ({
         {...restInputProps}
         {...register(fieldName)}
         type="text"
+        placeholder={labelName}
       />
       {errorMessage && <p>{errorMessage}</p>}
     </div>

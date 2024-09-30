@@ -13,14 +13,11 @@
 	align-items: center;
 	line-height: 22px;
 	border-radius: 5px;
-}
-
-.link--sign-in {
 	border: 1px solid var(--secondary-color);
 	color: var(--secondary-color);
 }
 
-.link--sign-up {
+.link--active {
 	background-color: var(--secondary-color);
 	color: var(--text-color);
 }

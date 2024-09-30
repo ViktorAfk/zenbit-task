@@ -1,14 +1,13 @@
 import React from 'react';
 import './LogIn.css';
 import { LogInForm } from '../../components/form/log-in/LogInForm';
+import { Title } from '../../components/title/Title';
 
 export const LogIn: React.FC = () => {
   return (
-    <section>
-      <div className="container">
-        <div className="sign-in-decoration" />
-        <LogInForm />
-      </div>
-    </section>
+    <div className="login-container">
+      <Title className="form-title merriweather-bold">Login</Title>
+      <LogInForm />
+    </div>
   );
 };

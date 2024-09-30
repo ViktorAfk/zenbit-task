@@ -1,19 +1,33 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { App } from './App';
+import { HeroScreen } from './components/hero-screen/HeroScreen';
 import { LogIn } from './routes/SignIn/LogIn';
+import { SignUp } from './routes/SignUp/SignUp';
+import { Authorization } from './routes/authorization/Authorization';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <HeroScreen />,
+      },
+      {
+        path: 'authorization',
+        element: <Authorization />,
+        children: [
+          {
+            path: 'sign-in',
+            element: <LogIn />,
+          },
+          {
+            path: 'sign-up',
+            element: <SignUp />,
+          },
+        ],
+      },
+    ],
   },
-  {
-    path: 'sign-in',
-    element: <LogIn />,
-  },
-  // {
-  //   path: 'create',
-  //   element: <CreateEvent />,
-  // },
 ]);

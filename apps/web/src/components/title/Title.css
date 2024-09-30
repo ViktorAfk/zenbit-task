@@ -6,6 +6,14 @@
 	margin-bottom: 10px;
 }
 
+.form-title {
+	font-size: var(--font-big);
+	color: var(--primary-color);
+	line-height: 34px;
+	margin-bottom: 20px;
+	text-align: left;
+}
+
 @media (min-width: 640px) {
 	.title {
 		font-size: var(--font-xl);

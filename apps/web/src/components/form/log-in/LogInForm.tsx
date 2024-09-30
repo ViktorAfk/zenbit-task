@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import { FormButton } from '../../ui/Buttons/form-button/FormButton';
 import { TextField } from '../textfield/TextField';
-import { schema } from './validation';
+import { schema } from '../validation';
 
-type SingInFormFields = yup.InferType<typeof schema>;
+const LogInSchema = schema.pick(['email', 'password']);
+type SingInFormFields = yup.InferType<typeof LogInSchema>;
 
 export const LogInForm: React.FC = () => {
   const {
@@ -21,7 +22,7 @@ export const LogInForm: React.FC = () => {
       email: '',
       password: '',
     },
-    resolver: yupResolver(schema),
+    resolver: yupResolver(LogInSchema),
   });
 
   const onHandleSubmit = (data: SingInFormFields) => {
@@ -47,11 +48,25 @@ export const LogInForm: React.FC = () => {
         />
       </div>
       <div className="form-link__container">
-        <Link className="form-link lato-bold" to={'#'}>
+        <Link className="form-link lato-bold" to={'authorization/sign-up'}>
           Forgot password?
         </Link>
       </div>
-      <FormButton type="submit">Sign In</FormButton>
+      <div className="form-button--modification">
+        <FormButton type="submit" disabled={isSubmitting}>
+          Sign In
+        </FormButton>
+      </div>
+      <div className="sign-up-link__container">
+        <p>
+          Don’t have account?{' '}
+          <span>
+            <Link className="form-link lato-bold" to={'authorization/sign-up'}>
+              Sign Up
+            </Link>
+          </span>
+        </p>
+      </div>
     </form>
   );
 };

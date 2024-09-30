@@ -8,7 +8,9 @@ export const HeroScreen: React.FC = () => {
   return (
     <section className="hero-screen">
       <div className="container hero-container">
-        <Title />
+        <Title tag="h1" className="title merriweather-bold">
+          The chemical negatively charged
+        </Title>
         <Description />
         <div className="hero-link-container">
           <Link className="hero-link merriweather-bold" to={'#'}>
