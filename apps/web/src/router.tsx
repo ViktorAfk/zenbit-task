@@ -4,6 +4,7 @@ import { HeroScreen } from './components/hero-screen/HeroScreen';
 import { LogIn } from './routes/SignIn/LogIn';
 import { SignUp } from './routes/SignUp/SignUp';
 import { Authorization } from './routes/authorization/Authorization';
+import { Deals } from './routes/deals/Deals';
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
             element: <SignUp />,
           },
         ],
+      },
+      {
+        path: 'deals',
+        element: <Deals />,
       },
     ],
   },
