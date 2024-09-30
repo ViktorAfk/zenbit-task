@@ -4,6 +4,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
+import { logUser } from '../../../api/auth';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hook';
+import { selectToken, setAuthToken } from '../../../state/features/authSlice';
 import { FormButton } from '../../ui/Buttons/form-button/FormButton';
 import { TextField } from '../textfield/TextField';
 import { schema } from '../validation';
@@ -12,6 +15,8 @@ const LogInSchema = schema.pick(['email', 'password']);
 type SingInFormFields = yup.InferType<typeof LogInSchema>;
 
 export const LogInForm: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const token = useAppSelector(selectToken);
   const {
     reset,
     register,
@@ -25,9 +30,18 @@ export const LogInForm: React.FC = () => {
     resolver: yupResolver(LogInSchema),
   });
 
-  const onHandleSubmit = (data: SingInFormFields) => {
+  const onHandleSubmit = async (data: SingInFormFields) => {
     console.log(data);
+    const token = await logUser(data);
+    if (!token) {
+      console.log('Oops!Something went wrong');
+    }
+
+    dispatch(setAuthToken(token));
+    reset();
   };
+
+  console.log(token);
 
   return (
     <form className="form" onSubmit={handleSubmit(onHandleSubmit)}>
