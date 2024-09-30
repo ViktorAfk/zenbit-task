@@ -1,0 +1,24 @@
+.authorization {
+	min-height: 100dvh;
+}
+
+.authorization__container {
+	display: flex;
+}
+
+.sign-in-decoration {
+	height: 100dvh;
+	flex: 2;
+	background-image: url("../../../public/bg-authorization.png");
+	background-position: cover;
+	background-repeat: no-repeat;
+}
+
+.authorization__children {
+	height: 100dvh;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-inline: 100px;
+}
