@@ -6,9 +6,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const appConfig = app.get<AppConfigService>(AppConfigService);
   const allowedOrigins = [appConfig.webUrl];
-
+  app.use;
   const isDevelopment = appConfig.env === 'development';
-
   if (isDevelopment) {
     allowedOrigins.push('http://localhost:5173');
   }
@@ -17,7 +16,6 @@ async function bootstrap() {
     credentials: true,
     origin: allowedOrigins,
   });
-
   await app.listen(appConfig.port);
 }
 
